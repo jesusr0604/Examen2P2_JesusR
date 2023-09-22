@@ -571,7 +571,7 @@ public class Principal extends javax.swing.JFrame {
             for (Cliente c : client) {
                 if (c.getUsername().equals(UsernameLog.getText()) && c.getPassword().equals(PasswordLog.getText())) {
                     Clientes.pack();
-                    Clientes.setModal(true);
+                    Clientes.setModal(true); 
                     Clientes.setLocationRelativeTo(this);
                     Clientes.setVisible(true);
                     UsernameLog.setText("");
@@ -698,8 +698,8 @@ public class Principal extends javax.swing.JFrame {
             String namenew = NombreLanzEdt.getText();
 
             Date fechanew = FechaLanzEDT.getDate();
-            artists.getCan().get(CBEVT.getSelectedIndex()).setTitulo(namenew);
-
+            artists.getAl().get(CBEVT.getSelectedIndex()).setNombre(namenew);
+            artists.getAl().get(CBEVT.getSelectedIndex()).setFecha(fechanew);
             JOptionPane.showMessageDialog(null, "Lanzamiento modificado");
         }
     }//GEN-LAST:event_CLanzEDTMouseClicked
