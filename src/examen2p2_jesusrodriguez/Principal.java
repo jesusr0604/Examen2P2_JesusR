@@ -1,8 +1,10 @@
 package examen2p2_jesusrodriguez;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -18,6 +20,8 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        leerArtistas();
+        leerClient();
     }
     ArrayList<Cliente> client = new ArrayList();
     ArrayList<Artista> arti = new ArrayList();
@@ -595,6 +599,7 @@ public class Principal extends javax.swing.JFrame {
                 if (!chris) {
                     client.add(new Cliente("Client", user, passw, age));
                     actCliente();
+                    bitacora(user, "Cliente");
                     JOptionPane.showMessageDialog(Register, "Your User has been created");
                     UserCL.setText("");
                     AgeCl.setText("");
@@ -633,6 +638,7 @@ public class Principal extends javax.swing.JFrame {
                 if (!chris) {
                     arti.add(new Artista(nom, "Artist", user, pass, age));
                     actArtistas();
+                    bitacora(user, "Artisita");
                     JOptionPane.showMessageDialog(Register, "Your User has been created");
                     UserArtist.setText("");
                     AgeArtist.setText("");
@@ -777,6 +783,28 @@ public class Principal extends javax.swing.JFrame {
             }
         }
     }
+    
+    
+    
+    private void bitacora(String usuario,String tipo) {
+        File fichero = new File("./bitacora.txt");
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        try {
+            fw = new FileWriter(fichero,true);
+            bw = new BufferedWriter(fw);
+            bw.write("El usuario: "+usuario+ ". siendo : "+ tipo +", se ha creado un : " + new Date().toString());
+            bw.flush();
+        } catch (Exception e) {
+        }
+        try {
+            fw.close();
+            bw.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
 
     /**
      * @param args the command line arguments
