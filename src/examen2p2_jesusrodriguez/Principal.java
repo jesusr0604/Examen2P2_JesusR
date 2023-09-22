@@ -27,6 +27,8 @@ public class Principal extends javax.swing.JFrame {
     ArrayList<Artista> arti = new ArrayList();
     ArrayList<Lanzamiento> launch = new ArrayList();
     ArrayList<ListaRep> list = new ArrayList();
+    Artista artists;
+    Cliente clien;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -550,23 +552,37 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginButtonMouseClicked
-        if (TypeUserCB.getSelectedItem() == "Artist") {
-            Artista.pack();
-            Artista.setModal(true);
-            Artista.setLocationRelativeTo(this);
-            Artista.setVisible(true);
-            UsernameLog.setText("");
-            PasswordLog.setText("");
-        } else if (TypeUserCB.getSelectedItem() == "Client") {
-            Clientes.pack();
-            Clientes.setModal(true);
-            Clientes.setLocationRelativeTo(this);
-            Clientes.setVisible(true);
-            UsernameLog.setText("");
-            PasswordLog.setText("");
-        } else {
-            JOptionPane.showMessageDialog(this, "No es Valido");
+        if (UsernameLog.getText().isEmpty() || PasswordLog.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Los datos no estan completos");
+        } else if (TypeUserCB.getSelectedIndex() == 0) {
+            for (Artista a : arti) {
+                if (a.getUsername().equals(UsernameLog.getText()) && a.getPassword().equals(PasswordLog.getText())) {
+                    Artista.pack();
+                    Artista.setModal(true);
+                    Artista.setLocationRelativeTo(this);
+                    Artista.setVisible(true);
+                    UsernameLog.setText("");
+                    PasswordLog.setText("");
+
+                }
+
+            }
+        } else if (TypeUserCB.getSelectedIndex() == 1) {
+            for (Cliente c : client) {
+                if (c.getUsername().equals(UsernameLog.getText()) && c.getPassword().equals(PasswordLog.getText())) {
+                    Clientes.pack();
+                    Clientes.setModal(true);
+                    Clientes.setLocationRelativeTo(this);
+                    Clientes.setVisible(true);
+                    UsernameLog.setText("");
+                    PasswordLog.setText("");
+                }
+            }
+
+        }else{
+            JOptionPane.showMessageDialog(this, "No valido");
         }
+
 
     }//GEN-LAST:event_LoginButtonMouseClicked
 
@@ -638,7 +654,7 @@ public class Principal extends javax.swing.JFrame {
                 if (!chris) {
                     arti.add(new Artista(nom, "Artist", user, pass, age));
                     actArtistas();
-                    bitacora(user, "Artisita");
+                    bitacora(user, "Artista");
                     JOptionPane.showMessageDialog(Register, "Your User has been created");
                     UserArtist.setText("");
                     AgeArtist.setText("");
@@ -676,7 +692,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_CLanzButMouseClicked
 
     private void CLanzEDTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CLanzEDTMouseClicked
+        if (NombreLanz.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Esta vacio para modificar");
+        } else {
+            String namenew = NombreLanzEdt.getText();
 
+            Date fechanew = FechaLanzEDT.getDate();
+            artists.getCan().get(CBEVT.getSelectedIndex()).setTitulo(namenew);
+
+            JOptionPane.showMessageDialog(null, "Lanzamiento modificado");
+        }
     }//GEN-LAST:event_CLanzEDTMouseClicked
 
     private void ButtonCreateListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCreateListActionPerformed
@@ -742,9 +767,7 @@ public class Principal extends javax.swing.JFrame {
             }
         }
     }
-    
-    
-    
+
     private void actCliente() {
         FileOutputStream fw = null;
         ObjectOutputStream bw = null;
@@ -783,17 +806,15 @@ public class Principal extends javax.swing.JFrame {
             }
         }
     }
-    
-    
-    
-    private void bitacora(String usuario,String tipo) {
+
+    private void bitacora(String usuario, String tipo) {
         File fichero = new File("./bitacora.txt");
         FileWriter fw = null;
         BufferedWriter bw = null;
         try {
-            fw = new FileWriter(fichero,true);
+            fw = new FileWriter(fichero, true);
             bw = new BufferedWriter(fw);
-            bw.write("El usuario: "+usuario+ ". siendo : "+ tipo +", se ha creado un : " + new Date().toString());
+            bw.write("El usuario: " + usuario + ". siendo : " + tipo + ", se ha creado un : " + new Date().toString());
             bw.flush();
         } catch (Exception e) {
         }
@@ -804,7 +825,6 @@ public class Principal extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }
-
 
     /**
      * @param args the command line arguments
