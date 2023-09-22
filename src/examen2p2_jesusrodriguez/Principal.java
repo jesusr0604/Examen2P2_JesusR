@@ -1,5 +1,11 @@
 package examen2p2_jesusrodriguez;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
@@ -15,8 +21,8 @@ public class Principal extends javax.swing.JFrame {
     }
     ArrayList<Cliente> client = new ArrayList();
     ArrayList<Artista> arti = new ArrayList();
-    ArrayList<Lanzamiento> launch= new ArrayList();
-    ArrayList<ListaRep> list= new ArrayList();
+    ArrayList<Lanzamiento> launch = new ArrayList();
+    ArrayList<ListaRep> list = new ArrayList();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -75,7 +81,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         ListaRepName = new javax.swing.JTextField();
         jPanel12 = new javax.swing.JPanel();
-        jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -418,8 +423,8 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addComponent(ListaRepName, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ButtonCreateList, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
+                .addComponent(ButtonCreateList, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                .addGap(26, 26, 26))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -448,20 +453,7 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 349, Short.MAX_VALUE)
         );
 
-        jTabbedPane3.addTab("Editar Listas", jPanel12);
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 349, Short.MAX_VALUE)
-        );
-
-        jTabbedPane3.addTab("Eliminar Listas", jPanel13);
+        jTabbedPane3.addTab("Editar/Eliminar Listas", jPanel12);
 
         jPanel14.setBackground(new java.awt.Color(0, 153, 51));
 
@@ -554,21 +546,21 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginButtonMouseClicked
-        if (TypeUserCB.getSelectedItem()== "Artist") {
-        Artista.pack();
-        Artista.setModal(true);
-        Artista.setLocationRelativeTo(this);
-        Artista.setVisible(true);
-        UsernameLog.setText("");
-        PasswordLog.setText("");
-        }else if(TypeUserCB.getSelectedItem()== "Client") {
-         Clientes.pack();
-        Clientes.setModal(true);
-        Clientes.setLocationRelativeTo(this);
-        Clientes.setVisible(true);
-        UsernameLog.setText("");
-        PasswordLog.setText("");
-        }else{
+        if (TypeUserCB.getSelectedItem() == "Artist") {
+            Artista.pack();
+            Artista.setModal(true);
+            Artista.setLocationRelativeTo(this);
+            Artista.setVisible(true);
+            UsernameLog.setText("");
+            PasswordLog.setText("");
+        } else if (TypeUserCB.getSelectedItem() == "Client") {
+            Clientes.pack();
+            Clientes.setModal(true);
+            Clientes.setLocationRelativeTo(this);
+            Clientes.setVisible(true);
+            UsernameLog.setText("");
+            PasswordLog.setText("");
+        } else {
             JOptionPane.showMessageDialog(this, "No es Valido");
         }
 
@@ -582,29 +574,35 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_RegistrarMouseClicked
 
     private void CreateClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateClientMouseClicked
-        String user = UserCL.getText();
-        int age = Integer.parseInt(AgeCl.getText());
-        String passw = PasswordCl.getText();
-        boolean chris = false;
-
-        if (age < 12) {
-            JOptionPane.showMessageDialog(Register, "Your age should be 12 or older");
+        if (UserCL.getText().isEmpty() || AgeCl.getText().isEmpty() || PasswordCl.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(Register, "Algun o varios requisitos esta vacios");
         } else {
-            for (Cliente cliente : client) {
-                if (cliente.getUsername().equals(user)) {
+            String user = UserCL.getText();
+            int age = Integer.parseInt(AgeCl.getText());
+            String passw = PasswordCl.getText();
+            boolean chris = false;
 
-                    chris = true;
-                    break;
-                }
-            }
-            if (!chris) {
-                client.add(new Cliente("Client", user, passw, age));
-                JOptionPane.showMessageDialog(Register, "Your User has been created");
-                UserCL.setText("");
-                AgeCl.setText("");
-                PasswordCl.setText("");
+            if (age < 12) {
+                JOptionPane.showMessageDialog(Register, "Your age should be 12 or older");
             } else {
-                JOptionPane.showMessageDialog(Register, "This user exists");
+                for (Cliente cliente : client) {
+                    if (cliente.getUsername().equals(user)) {
+
+                        chris = true;
+                        break;
+                    }
+                }
+                if (!chris) {
+                    client.add(new Cliente("Client", user, passw, age));
+                    actCliente();
+                    JOptionPane.showMessageDialog(Register, "Your User has been created");
+                    UserCL.setText("");
+                    AgeCl.setText("");
+                    PasswordCl.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(Register, "This user exists");
+                }
+
             }
 
         }
@@ -613,33 +611,40 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_CreateClientMouseClicked
 
     private void CreateArtBtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateArtBtMouseClicked
-        String user = UserArtist.getText();
-        String pass = PassArtist.getText();
-        int age = Integer.parseInt(AgeArtist.getText());
-        String nom = ArtNameTxt.getText();
-        boolean chris = false;
-
-        if (age < 18) {
-            JOptionPane.showMessageDialog(Register, "Your age should be 18 or older");
+        if (UserArtist.getText().isEmpty() || PassArtist.getText().isEmpty() || AgeArtist.getText().isEmpty() || ArtNameTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(Register, "Algun o varios requisitos estan vacios");
         } else {
-            for (Artista artista : arti) {
-                if (artista.getUsername().equals(user)) {
+            String user = UserArtist.getText();
+            String pass = PassArtist.getText();
+            int age = Integer.parseInt(AgeArtist.getText());
+            String nom = ArtNameTxt.getText();
+            boolean chris = false;
 
-                    chris = true;
-                    break;
+            if (age < 18) {
+                JOptionPane.showMessageDialog(Register, "Your age should be 18 or older");
+            } else {
+                for (Artista artista : arti) {
+                    if (artista.getUsername().equals(user)) {
+
+                        chris = true;
+                        break;
+                    }
+                }
+                if (!chris) {
+                    arti.add(new Artista(nom, "Artist", user, pass, age));
+                    actArtistas();
+                    JOptionPane.showMessageDialog(Register, "Your User has been created");
+                    UserArtist.setText("");
+                    AgeArtist.setText("");
+                    PassArtist.setText("");
+                    ArtNameTxt.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(Register, "This user exists");
                 }
             }
-            if (!chris) {
-                arti.add(new Artista(nom, "Artist", user, pass, age));
-                JOptionPane.showMessageDialog(Register, "Your User has been created");
-                UserArtist.setText("");
-                AgeArtist.setText("");
-                PassArtist.setText("");
-                ArtNameTxt.setText("");
-            } else {
-                JOptionPane.showMessageDialog(Register, "This user exists");
-            }
+
         }
+
 
     }//GEN-LAST:event_CreateArtBtMouseClicked
 
@@ -652,17 +657,20 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_CreateClientActionPerformed
 
     private void CLanzButMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CLanzButMouseClicked
-       String name= NombreLanz.getText();
-       Date fecha= FechaLanz.getDate();
-       launch.add(new Lanzamiento(name,0,fecha));
-       CBEVT.setModel(actualizarcbLaunch());
-        JOptionPane.showMessageDialog(Artista, "Lanzamiento creado exitosamente");
-        NombreLanz.setText("");
-      
+        if (NombreLanz.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(Artista, "El nombre del lanzamiento esta vacio");
+        } else {
+            String name = NombreLanz.getText();
+            Date fecha = FechaLanz.getDate();
+            launch.add(new Lanzamiento(name, 0, fecha));
+            CBEVT.setModel(actualizarcbLaunch());
+            JOptionPane.showMessageDialog(Artista, "Lanzamiento creado exitosamente");
+            NombreLanz.setText("");
+        }
     }//GEN-LAST:event_CLanzButMouseClicked
 
     private void CLanzEDTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CLanzEDTMouseClicked
-       
+
     }//GEN-LAST:event_CLanzEDTMouseClicked
 
     private void ButtonCreateListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCreateListActionPerformed
@@ -670,24 +678,106 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCreateListActionPerformed
 
     private void ButtonCreateListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCreateListMouseClicked
-       String tit= ListaRepName.getText();
-       list.add(new ListaRep(tit,0));
-       JOptionPane.showMessageDialog(null, "La Lista de Reproduccion ha sido creada");
-       
+        if (ListaRepName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No le ha peusto nombre a su lista");
+        } else {
+            String tit = ListaRepName.getText();
+            list.add(new ListaRep(tit, 0));
+            JOptionPane.showMessageDialog(Clientes, "La Lista de Reproduccion ha sido creada");;
+        }
+
+
     }//GEN-LAST:event_ButtonCreateListMouseClicked
 
-    
-    
-    
-    public DefaultComboBoxModel actualizarcbLaunch(){
-        DefaultComboBoxModel MODEL= new DefaultComboBoxModel();
+    public DefaultComboBoxModel actualizarcbLaunch() {
+        DefaultComboBoxModel MODEL = new DefaultComboBoxModel();
         for (Lanzamiento launches : launch) {
             MODEL.addElement(launches);
-            
+
         }
         return MODEL;
     }
+
+    private void actArtistas() {
+        FileOutputStream fw = null;
+        ObjectOutputStream bw = null;
+        try {
+            File fichero = new File("./artistas.usr");
+            fw = new FileOutputStream(fichero);
+            bw = new ObjectOutputStream(fw);
+            bw.writeObject(arti);
+            bw.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            bw.close();
+            fw.close();
+        } catch (IOException ex) {
+        }
+    }
+
+    private void leerArtistas() {
+        File fichero = new File("./artistas.usr");
+        FileInputStream entrada = null;
+        ObjectInputStream objeto = null;
+        if (fichero.exists()) {
+            try {
+                entrada = new FileInputStream(fichero);
+                objeto = new ObjectInputStream(entrada);
+                arti = (ArrayList<Artista>) objeto.readObject();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                objeto.close();
+                entrada.close();
+            } catch (IOException ex) {
+            }
+        }
+    }
     
+    
+    
+    private void actCliente() {
+        FileOutputStream fw = null;
+        ObjectOutputStream bw = null;
+        try {
+            File fichero = new File("./Client.cl");
+            fw = new FileOutputStream(fichero);
+            bw = new ObjectOutputStream(fw);
+            bw.writeObject(client);
+            bw.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            bw.close();
+            fw.close();
+        } catch (IOException ex) {
+        }
+    }
+
+    private void leerClient() {
+        File fichero = new File("./Client.cl");
+        FileInputStream entrada = null;
+        ObjectInputStream objeto = null;
+        if (fichero.exists()) {
+            try {
+                entrada = new FileInputStream(fichero);
+                objeto = new ObjectInputStream(entrada);
+                client = (ArrayList<Cliente>) objeto.readObject();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                objeto.close();
+                entrada.close();
+            } catch (IOException ex) {
+            }
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -771,7 +861,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
