@@ -6,12 +6,24 @@ public class Cancion {
     private String titulo;
     private int duracion;
     private String referencia  ;
+    private Album al;
+    private Single sin;
 
-    public Cancion(String titulo, int duracion, String referencia) {
+    public Cancion(String titulo, int duracion, Album referencia) {
         this.titulo = titulo;
         this.duracion = duracion;
-        this.referencia = referencia;
+        this.referencia = referencia.getNombre();
+       
     }
+
+     public Cancion(String titulo, int duracion, Single referencia) {
+        this.titulo = titulo;
+        this.duracion = duracion;
+        this.referencia = referencia.getNombre();
+    }
+
+    
+    
 
     public Cancion() {
     }
