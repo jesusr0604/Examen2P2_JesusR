@@ -10,12 +10,12 @@ import java.util.ArrayList;
  *
  * @author Jesus
  */
-public class Artistas extends Usuario {
+public class Artista extends Usuario {
     private String nombreart;
     private ArrayList<Cancion> can= new ArrayList();
     private ArrayList<Album> al= new ArrayList();
 
-    public Artistas(String nombreart, String tipo, String username, String password, int age) {
+    public Artista(String nombreart, String tipo, String username, String password, int age) {
         super(tipo, username, password, age);
         this.nombreart = nombreart;
     }
@@ -49,7 +49,7 @@ public class Artistas extends Usuario {
     
     
     
-    public Artistas(String tipo, String username, String password, int age) {
+    public Artista(String tipo, String username, String password, int age) {
         super(tipo, username, password, age);
     }
  }

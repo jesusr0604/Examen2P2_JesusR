@@ -1,13 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package examen2p2_jesusrodriguez;
 
-/**
- *
- * @author Jesus
- */
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 public class Principal extends javax.swing.JFrame {
 
     /**
@@ -16,6 +11,8 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
     }
+    ArrayList<Cliente> client = new ArrayList();
+    ArrayList<Artista> arti = new ArrayList();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,8 +23,27 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
+        Register = new javax.swing.JDialog();
         jPanel2 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        UserArtist = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        AgeArtist = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        PassArtist = new javax.swing.JTextField();
+        CreateArtBt = new javax.swing.JButton();
+        ArtNameTxt = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        UserCL = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        AgeCl = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        PasswordCl = new javax.swing.JTextField();
+        CreateClient = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -35,46 +51,160 @@ public class Principal extends javax.swing.JFrame {
         UsernameLog = new javax.swing.JTextField();
         LoginButton = new javax.swing.JButton();
         PasswordLog = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        TypeUserCB = new javax.swing.JComboBox<>();
+        Registrar = new javax.swing.JButton();
 
-        jPanel2.setBackground(new java.awt.Color(153, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(102, 51, 0));
+
+        jPanel4.setBackground(new java.awt.Color(102, 102, 0));
+
+        jLabel8.setText("Username");
+
+        jLabel9.setText("Age");
+
+        jLabel10.setText("Password");
+
+        CreateArtBt.setText("Create Artist");
+        CreateArtBt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CreateArtBtMouseClicked(evt);
+            }
+        });
+        CreateArtBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateArtBtActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("Artistic Name");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AgeArtist, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PassArtist, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UserArtist, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ArtNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addComponent(CreateArtBt, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(UserArtist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ArtNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AgeArtist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PassArtist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(CreateArtBt, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Crear Artista", jPanel4);
+
+        jPanel3.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setText("Username");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 97, 31));
+        jPanel3.add(UserCL, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 43, 141, -1));
+
+        jLabel6.setText("Age");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 72, 97, 31));
+        jPanel3.add(AgeCl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 109, 141, -1));
+
+        jLabel7.setText("Password");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 137, 97, 31));
+        jPanel3.add(PasswordCl, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 174, 141, -1));
+
+        CreateClient.setText("Create Client");
+        CreateClient.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CreateClientMouseClicked(evt);
+            }
+        });
+        CreateClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateClientActionPerformed(evt);
+            }
+        });
+        jPanel3.add(CreateClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 310, 220));
+
+        jTabbedPane1.addTab("Crear Cliente", jPanel3);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 691, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(50, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 405, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout RegisterLayout = new javax.swing.GroupLayout(Register.getContentPane());
+        Register.getContentPane().setLayout(RegisterLayout);
+        RegisterLayout.setHorizontalGroup(
+            RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        RegisterLayout.setVerticalGroup(
+            RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 204, 0));
         jLabel1.setText("Login");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 6, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 204, 0));
         jLabel2.setText("Username");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 204, 0));
-        jLabel3.setText("Password");
+        jLabel3.setText("Type of user");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, -1));
+        jPanel1.add(UsernameLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 446, 32));
 
         LoginButton.setBackground(new java.awt.Color(0, 0, 0));
         LoginButton.setText("Login");
@@ -83,53 +213,31 @@ public class Principal extends javax.swing.JFrame {
                 LoginButtonMouseClicked(evt);
             }
         });
+        jPanel1.add(LoginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 164, 86));
+        jPanel1.add(PasswordLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 446, 32));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(308, 308, 308)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(UsernameLog, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
-                            .addComponent(PasswordLog)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(262, 262, 262)
-                        .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(125, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1)
-                .addGap(43, 43, 43)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(UsernameLog, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PasswordLog, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
-        );
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 204, 0));
+        jLabel4.setText("Password");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
+
+        TypeUserCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Artist", "Client" }));
+        jPanel1.add(TypeUserCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 450, 40));
+
+        Registrar.setBackground(new java.awt.Color(0, 0, 0));
+        Registrar.setText("Register");
+        Registrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RegistrarMouseClicked(evt);
+            }
+        });
+        jPanel1.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 180, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,8 +248,89 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginButtonMouseClicked
-        
+        String us = UsernameLog.getText();
+        String ps = PasswordLog.getText();
+        int age = Integer.parseInt(AgeArtist.getText());
+
+
     }//GEN-LAST:event_LoginButtonMouseClicked
+
+    private void RegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseClicked
+        Register.pack();
+        Register.setModal(true);
+        Register.setLocationRelativeTo(this);
+        Register.setVisible(true);
+    }//GEN-LAST:event_RegistrarMouseClicked
+
+    private void CreateClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateClientMouseClicked
+        String user = UserCL.getText();
+        int age = Integer.parseInt(AgeCl.getText());
+        String passw = PasswordCl.getText();
+        boolean chris = false;
+
+        if (age < 12) {
+            JOptionPane.showMessageDialog(null, "Your age should be 12 or older");
+        } else {
+            for (Cliente cliente : client) {
+                if (cliente.getUsername().equals(user)) {
+
+                    chris = true;
+                    break;
+                }
+            }
+            if (!chris) {
+                client.add(new Cliente("Client", user, passw, age));
+                JOptionPane.showMessageDialog(null, "Your User has been created");
+                UserCL.setText("");
+                AgeCl.setText("");
+                PasswordCl.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "This user exists");
+            }
+
+        }
+
+
+    }//GEN-LAST:event_CreateClientMouseClicked
+
+    private void CreateArtBtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateArtBtMouseClicked
+        String user = UserArtist.getText();
+        String pass = PassArtist.getText();
+        int age = Integer.parseInt(AgeArtist.getText());
+        String nom = ArtNameTxt.getText();
+        boolean chris = false;
+
+        if (age < 18) {
+            JOptionPane.showMessageDialog(null, "Your age should be 18 or older");
+        } else {
+            for (Artista artista : arti) {
+                if (artista.getUsername().equals(user)) {
+
+                    chris = true;
+                    break;
+                }
+            }
+            if (!chris) {
+                arti.add(new Artista(nom, "Artista", user, pass, age));
+                JOptionPane.showMessageDialog(null, "Your User has been created");
+                UserArtist.setText("");
+                AgeArtist.setText("");
+                PassArtist.setText("");
+                ArtNameTxt.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "This user exists");
+            }
+        }
+
+    }//GEN-LAST:event_CreateArtBtMouseClicked
+
+    private void CreateArtBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateArtBtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CreateArtBtActionPerformed
+
+    private void CreateClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CreateClientActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,14 +368,36 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AgeArtist;
+    private javax.swing.JTextField AgeCl;
+    private javax.swing.JTextField ArtNameTxt;
+    private javax.swing.JButton CreateArtBt;
+    private javax.swing.JButton CreateClient;
     private javax.swing.JButton LoginButton;
+    private javax.swing.JTextField PassArtist;
+    private javax.swing.JTextField PasswordCl;
     private javax.swing.JTextField PasswordLog;
+    private javax.swing.JDialog Register;
+    private javax.swing.JButton Registrar;
+    private javax.swing.JComboBox<String> TypeUserCB;
+    private javax.swing.JTextField UserArtist;
+    private javax.swing.JTextField UserCL;
     private javax.swing.JTextField UsernameLog;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
