@@ -16,6 +16,7 @@ public class Principal extends javax.swing.JFrame {
     ArrayList<Cliente> client = new ArrayList();
     ArrayList<Artista> arti = new ArrayList();
     ArrayList<Lanzamiento> launch= new ArrayList();
+    ArrayList<ListaRep> list= new ArrayList();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,6 +69,14 @@ public class Principal extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         Clientes = new javax.swing.JDialog();
         jPanel8 = new javax.swing.JPanel();
+        jTabbedPane3 = new javax.swing.JTabbedPane();
+        jPanel11 = new javax.swing.JPanel();
+        ButtonCreateList = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        ListaRepName = new javax.swing.JTextField();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -377,28 +386,109 @@ public class Principal extends javax.swing.JFrame {
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 787, Short.MAX_VALUE)
+        jPanel8.setBackground(new java.awt.Color(51, 102, 0));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel11.setBackground(new java.awt.Color(0, 51, 102));
+
+        ButtonCreateList.setText("CREAR LISTA");
+        ButtonCreateList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ButtonCreateListMouseClicked(evt);
+            }
+        });
+        ButtonCreateList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCreateListActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("Nombre de la Lista");
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel17))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(ListaRepName, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ButtonCreateList, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ListaRepName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(277, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ButtonCreateList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(16, 16, 16))
         );
+
+        jTabbedPane3.addTab("Crear Lista de Reproduccion", jPanel11);
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 710, Short.MAX_VALUE)
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 349, Short.MAX_VALUE)
+        );
+
+        jTabbedPane3.addTab("Editar Listas", jPanel12);
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 710, Short.MAX_VALUE)
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 349, Short.MAX_VALUE)
+        );
+
+        jTabbedPane3.addTab("Eliminar Listas", jPanel13);
+
+        jPanel14.setBackground(new java.awt.Color(0, 153, 51));
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 710, Short.MAX_VALUE)
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 349, Short.MAX_VALUE)
+        );
+
+        jTabbedPane3.addTab("Visualizar Listas", jPanel14);
+
+        jPanel8.add(jTabbedPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 710, 380));
 
         javax.swing.GroupLayout ClientesLayout = new javax.swing.GroupLayout(Clientes.getContentPane());
         Clientes.getContentPane().setLayout(ClientesLayout);
         ClientesLayout.setHorizontalGroup(
             ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ClientesLayout.createSequentialGroup()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         ClientesLayout.setVerticalGroup(
             ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -469,6 +559,17 @@ public class Principal extends javax.swing.JFrame {
         Artista.setModal(true);
         Artista.setLocationRelativeTo(this);
         Artista.setVisible(true);
+        UsernameLog.setText("");
+        PasswordLog.setText("");
+        }else if(TypeUserCB.getSelectedItem()== "Client") {
+         Clientes.pack();
+        Clientes.setModal(true);
+        Clientes.setLocationRelativeTo(this);
+        Clientes.setVisible(true);
+        UsernameLog.setText("");
+        PasswordLog.setText("");
+        }else{
+            JOptionPane.showMessageDialog(this, "No es Valido");
         }
 
     }//GEN-LAST:event_LoginButtonMouseClicked
@@ -556,11 +657,24 @@ public class Principal extends javax.swing.JFrame {
        launch.add(new Lanzamiento(name,0,fecha));
        CBEVT.setModel(actualizarcbLaunch());
         JOptionPane.showMessageDialog(Artista, "Lanzamiento creado exitosamente");
+        NombreLanz.setText("");
+      
     }//GEN-LAST:event_CLanzButMouseClicked
 
     private void CLanzEDTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CLanzEDTMouseClicked
        
     }//GEN-LAST:event_CLanzEDTMouseClicked
+
+    private void ButtonCreateListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCreateListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonCreateListActionPerformed
+
+    private void ButtonCreateListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCreateListMouseClicked
+       String tit= ListaRepName.getText();
+       list.add(new ListaRep(tit,0));
+       JOptionPane.showMessageDialog(null, "La Lista de Reproduccion ha sido creada");
+       
+    }//GEN-LAST:event_ButtonCreateListMouseClicked
 
     
     
@@ -614,6 +728,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField AgeCl;
     private javax.swing.JTextField ArtNameTxt;
     private javax.swing.JDialog Artista;
+    private javax.swing.JButton ButtonCreateList;
     private javax.swing.JComboBox<String> CBEVT;
     private javax.swing.JButton CLanzBut;
     private javax.swing.JButton CLanzEDT;
@@ -622,6 +737,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton CreateClient;
     private com.toedter.calendar.JDateChooser FechaLanz;
     private com.toedter.calendar.JDateChooser FechaLanzEDT;
+    private javax.swing.JTextField ListaRepName;
     private javax.swing.JButton LoginButton;
     private javax.swing.JTextField NombreLanz;
     private javax.swing.JTextField NombreLanzEdt;
@@ -642,6 +758,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -652,6 +769,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -662,5 +783,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTabbedPane jTabbedPane3;
     // End of variables declaration//GEN-END:variables
 }
