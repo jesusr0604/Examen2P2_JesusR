@@ -1,8 +1,10 @@
 
 package examen2p2_jesusrodriguez;
 
+import java.io.Serializable;
 
-public class Usuario {
+
+public class Usuario implements Serializable{
     private String tipo;
     private String username;
     private String password;

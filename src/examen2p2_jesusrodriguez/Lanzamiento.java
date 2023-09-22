@@ -21,6 +21,10 @@ public class Lanzamiento {
         this.fecha = fecha;
     }
 
+    
+    
+    
+
     public String getNombre() {
         return nombre;
     }
@@ -43,6 +47,11 @@ public class Lanzamiento {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    @Override
+    public String toString() {
+        return nombre ;
     }
    
    
