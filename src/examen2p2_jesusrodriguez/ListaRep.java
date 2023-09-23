@@ -37,6 +37,11 @@ public class ListaRep {
     public void setCan(ArrayList<Cancion> can) {
         this.can = can;
     }
+
+    @Override
+    public String toString() {
+        return  name ;
+    }
     
     
     

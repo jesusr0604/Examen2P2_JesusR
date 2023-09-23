@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Artista extends Usuario {
     private String nombreart;
-    private ArrayList<Cancion> can= new ArrayList();
+    private ArrayList<Single> can= new ArrayList();
     private ArrayList<Album> al= new ArrayList();
 
     public Artista(String nombreart, String tipo, String username, String password, int age) {
@@ -28,11 +28,11 @@ public class Artista extends Usuario {
         this.nombreart = nombreart;
     }
 
-    public ArrayList<Cancion> getCan() {
+    public ArrayList<Single> getCan() {
         return can;
     }
 
-    public void setCan(ArrayList<Cancion> can) {
+    public void setCan(ArrayList<Single> can) {
         this.can = can;
     }
 

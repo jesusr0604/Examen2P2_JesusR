@@ -11,6 +11,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 public class Principal extends javax.swing.JFrame {
@@ -78,7 +79,7 @@ public class Principal extends javax.swing.JFrame {
         CLanzEDT = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         CBEVT = new javax.swing.JComboBox<>();
-        jPanel10 = new javax.swing.JPanel();
+        DELETELaun = new javax.swing.JButton();
         Clientes = new javax.swing.JDialog();
         jPanel8 = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
@@ -87,6 +88,14 @@ public class Principal extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         ListaRepName = new javax.swing.JTextField();
         jPanel12 = new javax.swing.JPanel();
+        ListaNombreNueva = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ListaSongs = new javax.swing.JList<>();
+        CBL = new javax.swing.JComboBox<>();
+        jLabel18 = new javax.swing.JLabel();
+        EliminarRep = new javax.swing.JButton();
+        ModificarRep = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -322,6 +331,14 @@ public class Principal extends javax.swing.JFrame {
 
         CBEVT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        DELETELaun.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        DELETELaun.setText("ELIMINAR LANZAMIENTO");
+        DELETELaun.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DELETELaunMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -329,7 +346,6 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CLanzEDT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel9Layout.createSequentialGroup()
@@ -344,7 +360,11 @@ public class Principal extends javax.swing.JFrame {
                                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(NombreLanzEdt, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 205, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addComponent(CLanzEDT)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addComponent(DELETELaun)))
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
@@ -362,27 +382,14 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(FechaLanzEDT, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addComponent(CLanzEDT, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(96, 96, 96)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DELETELaun, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                    .addComponent(CLanzEDT, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
+                .addGap(49, 49, 49))
         );
 
-        jTabbedPane2.addTab("Editar Lanzamiento", jPanel9);
-
-        jPanel10.setBackground(new java.awt.Color(102, 102, 0));
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 643, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 324, Short.MAX_VALUE)
-        );
-
-        jTabbedPane2.addTab("Eliminar Lanzamiento", jPanel10);
+        jTabbedPane2.addTab("Editar/Eliminar Lanzamiento", jPanel9);
 
         jPanel5.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 643, 355));
 
@@ -448,15 +455,83 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Crear Lista de Reproduccion", jPanel11);
 
+        ListaSongs.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(ListaSongs);
+
+        CBL.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBL.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CBLItemStateChanged(evt);
+            }
+        });
+
+        jLabel18.setText("Nombre Lista Nueva");
+
+        EliminarRep.setText("Eliminar Lista de Reproduccion");
+        EliminarRep.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EliminarRepMouseClicked(evt);
+            }
+        });
+
+        ModificarRep.setText("Modificar Lista de Reproduccion");
+        ModificarRep.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ModificarRepMouseClicked(evt);
+            }
+        });
+
+        jLabel19.setText("Lista de Reproduccion Actual");
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(EliminarRep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CBL, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19))
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ListaNombreNueva, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel18)))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(229, 229, 229)
+                        .addComponent(ModificarRep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 349, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addGap(18, 18, 18)
+                        .addComponent(ListaNombreNueva, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CBL, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(EliminarRep, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ModificarRep, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Editar/Eliminar Listas", jPanel12);
@@ -482,7 +557,7 @@ public class Principal extends javax.swing.JFrame {
         Clientes.getContentPane().setLayout(ClientesLayout);
         ClientesLayout.setHorizontalGroup(
             ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
         );
         ClientesLayout.setVerticalGroup(
             ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -710,20 +785,69 @@ public class Principal extends javax.swing.JFrame {
 
     private void ButtonCreateListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCreateListMouseClicked
         if (ListaRepName.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "No le ha peusto nombre a su lista");
+            JOptionPane.showMessageDialog(this, "No le ha puesto nombre a su lista");
         } else {
             String tit = ListaRepName.getText();
             list.add(new ListaRep(tit, 0));
+           CBL.setModel(actualizarcbListasRP()); 
             JOptionPane.showMessageDialog(Clientes, "La Lista de Reproduccion ha sido creada");;
         }
 
 
     }//GEN-LAST:event_ButtonCreateListMouseClicked
 
+    private void DELETELaunMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DELETELaunMouseClicked
+        arti.remove(CBEVT.getSelectedIndex());
+        actualizarcbLaunch();
+        JOptionPane.showMessageDialog(null, "El Lanzamiento ha sido eliminado");
+            
+        
+                
+
+        
+        
+        
+        
+    }//GEN-LAST:event_DELETELaunMouseClicked
+
+    private void EliminarRepMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarRepMouseClicked
+        list.remove(CBL.getSelectedIndex());
+        CBL.setModel(actualizarcbListasRP());
+        JOptionPane.showMessageDialog(this, "La lista ha sido eliminada exitosamente");
+        
+        
+        
+    }//GEN-LAST:event_EliminarRepMouseClicked
+
+    private void ModificarRepMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarRepMouseClicked
+       String mike= ListaNombreNueva.getText();
+        if (CBL.getSelectedIndex()>=0) {
+            
+        }
+       
+       
+    }//GEN-LAST:event_ModificarRepMouseClicked
+
+    private void CBLItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CBLItemStateChanged
+       
+    }//GEN-LAST:event_CBLItemStateChanged
+
     public DefaultComboBoxModel actualizarcbLaunch() {
         DefaultComboBoxModel MODEL = new DefaultComboBoxModel();
         for (Lanzamiento launches : launch) {
             MODEL.addElement(launches);
+
+        }
+        return MODEL;
+    }
+    
+    
+    
+    
+     public DefaultComboBoxModel actualizarcbListasRP() {
+        DefaultComboBoxModel MODEL = new DefaultComboBoxModel();
+        for (ListaRep lista : list) {
+            MODEL.addElement(list);
 
         }
         return MODEL;
@@ -826,6 +950,16 @@ public class Principal extends javax.swing.JFrame {
         }
     }
 
+    
+    public DefaultListModel Actualizarl(){
+        DefaultListModel model= new DefaultListModel();
+        for (ListaRep listaRep : list) {
+            model.addAll(list);
+        }
+        return model;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -868,15 +1002,21 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog Artista;
     private javax.swing.JButton ButtonCreateList;
     private javax.swing.JComboBox<String> CBEVT;
+    private javax.swing.JComboBox<String> CBL;
     private javax.swing.JButton CLanzBut;
     private javax.swing.JButton CLanzEDT;
     private javax.swing.JDialog Clientes;
     private javax.swing.JButton CreateArtBt;
     private javax.swing.JButton CreateClient;
+    private javax.swing.JButton DELETELaun;
+    private javax.swing.JButton EliminarRep;
     private com.toedter.calendar.JDateChooser FechaLanz;
     private com.toedter.calendar.JDateChooser FechaLanzEDT;
+    private javax.swing.JTextField ListaNombreNueva;
     private javax.swing.JTextField ListaRepName;
+    private javax.swing.JList<String> ListaSongs;
     private javax.swing.JButton LoginButton;
+    private javax.swing.JButton ModificarRep;
     private javax.swing.JTextField NombreLanz;
     private javax.swing.JTextField NombreLanzEdt;
     private javax.swing.JTextField PassArtist;
@@ -897,6 +1037,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -906,7 +1048,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel14;
@@ -918,6 +1059,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
