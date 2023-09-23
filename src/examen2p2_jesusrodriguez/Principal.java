@@ -96,6 +96,16 @@ public class Principal extends javax.swing.JFrame {
         ChooserFecha1 = new com.toedter.calendar.JDateChooser();
         CrearSingle = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
+        CanName = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        DuraCan = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        CreateCan = new javax.swing.JButton();
+        JBAL = new javax.swing.JComboBox<>();
+        JBSIN = new javax.swing.JComboBox<>();
+        jLabel27 = new javax.swing.JLabel();
+        jLabe28 = new javax.swing.JLabel();
         Clientes = new javax.swing.JDialog();
         jPanel8 = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
@@ -483,15 +493,82 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Crear Single", jPanel13);
 
+        jPanel15.setBackground(new java.awt.Color(0, 51, 51));
+
+        jLabel24.setText("Titulo Cancion");
+
+        jLabel25.setText("Duracion Cancion");
+
+        jLabel26.setText("Referencia");
+
+        CreateCan.setText("CREAR CANCION");
+        CreateCan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CreateCanMouseClicked(evt);
+            }
+        });
+
+        jLabel27.setText("Album");
+
+        jLabe28.setText("Single");
+
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 643, Short.MAX_VALUE)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel15Layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel26)
+                                    .addComponent(jLabel25)
+                                    .addComponent(DuraCan, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel24)
+                                    .addComponent(CanName, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel15Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel27))
+                            .addGroup(jPanel15Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(JBAL, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(120, 120, 120)
+                        .addComponent(CreateCan, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabe28)
+                            .addComponent(JBSIN, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 294, Short.MAX_VALUE)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(CreateCan, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel24)
+                .addGap(6, 6, 6)
+                .addComponent(CanName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel25)
+                .addGap(6, 6, 6)
+                .addComponent(DuraCan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel26)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JBAL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabe28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBSIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         jTabbedPane2.addTab("Crear Cancion", jPanel15);
@@ -737,12 +814,14 @@ public class Principal extends javax.swing.JFrame {
         } else if (TypeUserCB.getSelectedIndex() == 0) {
             for (Artista a : arti) {
                 if (a.getUsername().equals(UsernameLog.getText()) && a.getPassword().equals(PasswordLog.getText())) {
+                      artists= a;
                     Artista.pack();
                     Artista.setModal(true);
                     Artista.setLocationRelativeTo(this);
                     Artista.setVisible(true);
                     UsernameLog.setText("");
                     PasswordLog.setText("");
+                   
 
                 }
 
@@ -750,12 +829,14 @@ public class Principal extends javax.swing.JFrame {
         } else if (TypeUserCB.getSelectedIndex() == 1) {
             for (Cliente c : client) {
                 if (c.getUsername().equals(UsernameLog.getText()) && c.getPassword().equals(PasswordLog.getText())) {
+                    clien= c;
                     Clientes.pack();
                     Clientes.setModal(true); 
                     Clientes.setLocationRelativeTo(this);
                     Clientes.setVisible(true);
                     UsernameLog.setText("");
                     PasswordLog.setText("");
+                 
                 }
             }
 
@@ -951,19 +1032,31 @@ public class Principal extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(this,"Album no tiene nombre" );
         }else{
             arti.get(arti.indexOf(artists)).getAl().add(new Album(AlbumName.getText(), 0, ChooserFecha.getDate()));
+          JBAL.setModel(actualizarcbal());
             AlbumName.setText("");
+
         }
     }//GEN-LAST:event_CrearAlbumMouseClicked
 
     private void CrearSingleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearSingleMouseClicked
         if (SingleName.getText().isEmpty()) {
-         JOptionPane.showMessageDialog(this,"Album no tiene nombre" );
+         JOptionPane.showMessageDialog(this,"El Single no tiene nombre" );
         }else{
             arti.get(arti.indexOf(artists)).getCan().add(new Single(SingleName.getText(), 0, ChooserFecha1.getDate()));
-            
+            JBSIN.setModel(actualizarcbsin());
             SingleName.setText("");
         }
     }//GEN-LAST:event_CrearSingleMouseClicked
+
+    private void CreateCanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateCanMouseClicked
+        if (CanName.getText().isEmpty()||DuraCan.getText().isEmpty()) {
+         JOptionPane.showMessageDialog(this,"La Cancion no tiene nombre" );
+        }else{
+            music.add(new Cancion());
+            
+            SingleName.setText("");
+        }
+    }//GEN-LAST:event_CreateCanMouseClicked
 
     public DefaultComboBoxModel actualizarcbLaunch() {
         DefaultComboBoxModel MODEL = new DefaultComboBoxModel();
@@ -985,6 +1078,29 @@ public class Principal extends javax.swing.JFrame {
         }
         return MODEL;
     }
+     
+     public DefaultComboBoxModel actualizarcbal() {
+        DefaultComboBoxModel MODEL = new DefaultComboBoxModel();
+        for (Album al: arti.get(arti.indexOf(artists)).getAl()) {
+            MODEL.addElement(list);
+
+        }
+        return MODEL;
+    }
+     
+       public DefaultComboBoxModel actualizarcbsin() {
+        DefaultComboBoxModel MODEL = new DefaultComboBoxModel();
+        for (Single single: arti.get(arti.indexOf(artists)).getCan()) {
+            MODEL.addElement(list);
+
+        }
+        return MODEL;
+    }
+     
+     
+     
+     
+     
 
     private void actArtistas() {
         FileOutputStream fw = null;
@@ -1093,6 +1209,11 @@ public class Principal extends javax.swing.JFrame {
     }
     
     
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -1139,17 +1260,22 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CBL;
     private javax.swing.JButton CLanzBut;
     private javax.swing.JButton CLanzEDT;
+    private javax.swing.JTextField CanName;
     private com.toedter.calendar.JDateChooser ChooserFecha;
     private com.toedter.calendar.JDateChooser ChooserFecha1;
     private javax.swing.JDialog Clientes;
     private javax.swing.JButton CrearAlbum;
     private javax.swing.JButton CrearSingle;
     private javax.swing.JButton CreateArtBt;
+    private javax.swing.JButton CreateCan;
     private javax.swing.JButton CreateClient;
     private javax.swing.JButton DELETELaun;
+    private javax.swing.JTextField DuraCan;
     private javax.swing.JButton EliminarRep;
     private com.toedter.calendar.JDateChooser FechaLanz;
     private com.toedter.calendar.JDateChooser FechaLanzEDT;
+    private javax.swing.JComboBox<String> JBAL;
+    private javax.swing.JComboBox<String> JBSIN;
     private javax.swing.JTextField ListaNombreNueva;
     private javax.swing.JTextField ListaRepName;
     private javax.swing.JList<String> ListaSongs;
@@ -1167,6 +1293,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField UserArtist;
     private javax.swing.JTextField UserCL;
     private javax.swing.JTextField UsernameLog;
+    private javax.swing.JLabel jLabe28;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1183,6 +1310,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
