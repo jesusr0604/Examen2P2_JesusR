@@ -28,8 +28,11 @@ public class Principal extends javax.swing.JFrame {
     ArrayList<Artista> arti = new ArrayList();
     ArrayList<Lanzamiento> launch = new ArrayList();
     ArrayList<ListaRep> list = new ArrayList();
+    ArrayList<Cancion> music= new ArrayList();
+    ArrayList <Single> sin= new ArrayList();
     Artista artists;
     Cliente clien;
+    ListaRep lists;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,6 +83,19 @@ public class Principal extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         CBEVT = new javax.swing.JComboBox<>();
         DELETELaun = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        AlbumName = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        ChooserFecha = new com.toedter.calendar.JDateChooser();
+        CrearAlbum = new javax.swing.JButton();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        SingleName = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        ChooserFecha1 = new com.toedter.calendar.JDateChooser();
+        CrearSingle = new javax.swing.JButton();
+        jPanel15 = new javax.swing.JPanel();
         Clientes = new javax.swing.JDialog();
         jPanel8 = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
@@ -289,7 +305,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                     .addComponent(FechaLanz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(31, 31, 31)
-                .addComponent(CLanzBut, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                .addComponent(CLanzBut, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -305,7 +321,7 @@ public class Principal extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 324, Short.MAX_VALUE)
+            .addGap(0, 294, Short.MAX_VALUE)
         );
 
         jTabbedPane2.addTab("Publicar Lanzamiento", jPanel7);
@@ -391,7 +407,96 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Editar/Eliminar Lanzamiento", jPanel9);
 
-        jPanel5.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 643, 355));
+        jPanel10.setBackground(new java.awt.Color(102, 0, 0));
+        jPanel10.setForeground(new java.awt.Color(102, 51, 0));
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel20.setText("Fecha Lanzamiento");
+        jPanel10.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 82, -1, -1));
+        jPanel10.add(AlbumName, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 41, 173, -1));
+
+        jLabel21.setText("Titulo Album");
+        jPanel10.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 19, -1, -1));
+        jPanel10.add(ChooserFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 116, 173, -1));
+
+        CrearAlbum.setText("Crear Album");
+        CrearAlbum.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CrearAlbumMouseClicked(evt);
+            }
+        });
+        jPanel10.add(CrearAlbum, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 41, 260, 150));
+
+        jTabbedPane2.addTab("Crear Album", jPanel10);
+
+        jPanel13.setBackground(new java.awt.Color(51, 0, 51));
+        jPanel13.setForeground(new java.awt.Color(204, 102, 0));
+
+        jLabel22.setText("Fecha Lanzamiento");
+
+        jLabel23.setText("Titulo Single");
+
+        CrearSingle.setText("Crear Single");
+        CrearSingle.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CrearSingleMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 643, Short.MAX_VALUE)
+            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel13Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel23)
+                        .addGroup(jPanel13Layout.createSequentialGroup()
+                            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(SingleName, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel22)
+                                .addComponent(ChooserFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(114, 114, 114)
+                            .addComponent(CrearSingle, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 294, Short.MAX_VALUE)
+            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel13Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel23)
+                    .addGap(6, 6, 6)
+                    .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel13Layout.createSequentialGroup()
+                            .addComponent(SingleName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(19, 19, 19)
+                            .addComponent(jLabel22)
+                            .addGap(18, 18, 18)
+                            .addComponent(ChooserFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(CrearSingle, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jTabbedPane2.addTab("Crear Single", jPanel13);
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 643, Short.MAX_VALUE)
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 294, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("Crear Cancion", jPanel15);
+
+        jPanel5.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 643, 355));
 
         javax.swing.GroupLayout ArtistaLayout = new javax.swing.GroupLayout(Artista.getContentPane());
         Artista.getContentPane().setLayout(ArtistaLayout);
@@ -820,17 +925,45 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_EliminarRepMouseClicked
 
     private void ModificarRepMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarRepMouseClicked
-       String mike= ListaNombreNueva.getText();
-        if (CBL.getSelectedIndex()>=0) {
+      
+       if (ListaNombreNueva.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Esta vacio para modificar");
+        } else {
+            String namenew = ListaNombreNueva.getText();
+
+       
+            //lists.getName();
             
+            JOptionPane.showMessageDialog(null, "Lanzamiento modificado");
         }
        
        
     }//GEN-LAST:event_ModificarRepMouseClicked
 
     private void CBLItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CBLItemStateChanged
-       
+       if (CBL.getSelectedIndex()>=0) {
+            ListaSongs.setModel(Actualizarl());
+        }
     }//GEN-LAST:event_CBLItemStateChanged
+
+    private void CrearAlbumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearAlbumMouseClicked
+        if (AlbumName.getText().isEmpty()) {
+         JOptionPane.showMessageDialog(this,"Album no tiene nombre" );
+        }else{
+            arti.get(arti.indexOf(artists)).getAl().add(new Album(AlbumName.getText(), 0, ChooserFecha.getDate()));
+            AlbumName.setText("");
+        }
+    }//GEN-LAST:event_CrearAlbumMouseClicked
+
+    private void CrearSingleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearSingleMouseClicked
+        if (SingleName.getText().isEmpty()) {
+         JOptionPane.showMessageDialog(this,"Album no tiene nombre" );
+        }else{
+            arti.get(arti.indexOf(artists)).getCan().add(new Single(SingleName.getText(), 0, ChooserFecha1.getDate()));
+            
+            SingleName.setText("");
+        }
+    }//GEN-LAST:event_CrearSingleMouseClicked
 
     public DefaultComboBoxModel actualizarcbLaunch() {
         DefaultComboBoxModel MODEL = new DefaultComboBoxModel();
@@ -998,6 +1131,7 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AgeArtist;
     private javax.swing.JTextField AgeCl;
+    private javax.swing.JTextField AlbumName;
     private javax.swing.JTextField ArtNameTxt;
     private javax.swing.JDialog Artista;
     private javax.swing.JButton ButtonCreateList;
@@ -1005,7 +1139,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CBL;
     private javax.swing.JButton CLanzBut;
     private javax.swing.JButton CLanzEDT;
+    private com.toedter.calendar.JDateChooser ChooserFecha;
+    private com.toedter.calendar.JDateChooser ChooserFecha1;
     private javax.swing.JDialog Clientes;
+    private javax.swing.JButton CrearAlbum;
+    private javax.swing.JButton CrearSingle;
     private javax.swing.JButton CreateArtBt;
     private javax.swing.JButton CreateClient;
     private javax.swing.JButton DELETELaun;
@@ -1024,6 +1162,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField PasswordLog;
     private javax.swing.JDialog Register;
     private javax.swing.JButton Registrar;
+    private javax.swing.JTextField SingleName;
     private javax.swing.JComboBox<String> TypeUserCB;
     private javax.swing.JTextField UserArtist;
     private javax.swing.JTextField UserCL;
@@ -1040,6 +1179,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1048,9 +1191,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
