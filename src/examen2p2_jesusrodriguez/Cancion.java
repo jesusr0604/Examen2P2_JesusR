@@ -20,7 +20,13 @@ public class Cancion {
         this.titulo = titulo;
         this.duracion = duracion;
         this.referencia = referencia.getNombre();
-    }
+        
+        
+        
+        
+        
+        
+     }
 
   
 
@@ -72,7 +78,7 @@ public class Cancion {
     
     @Override
     public String toString() {
-        return "Cancion{" + "titulo=" + titulo + ", duracion=" + duracion + ", referencia=" + referencia + '}';
+        return titulo ;
     }
     
     

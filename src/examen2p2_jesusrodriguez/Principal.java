@@ -34,7 +34,7 @@ public class Principal extends javax.swing.JFrame {
     Cliente clien;
     ListaRep lists;
     AdminPB PBS;
-
+Cancion song;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -127,10 +127,12 @@ public class Principal extends javax.swing.JFrame {
         jPanel16 = new javax.swing.JPanel();
         PBC = new javax.swing.JProgressBar();
         jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        CBAL = new javax.swing.JComboBox<>();
+        CBSIN = new javax.swing.JComboBox<>();
+        CBCAN = new javax.swing.JComboBox<>();
         jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -745,32 +747,36 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel27.setText("Single");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel28.setText("Cancion");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel27.setText("Cancion");
+        jLabel29.setText("Album");
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PBC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PBC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CBAL, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel29))
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CBSIN, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel27))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel27)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 20, Short.MAX_VALUE)))
+                            .addComponent(jLabel28)
+                            .addComponent(CBCAN, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 26, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel16Layout.setVerticalGroup(
@@ -779,12 +785,15 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addComponent(PBC, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(jLabel27)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(jLabel28)
+                    .addComponent(jLabel29))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CBAL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CBSIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CBCAN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(42, Short.MAX_VALUE))
@@ -1095,6 +1104,7 @@ public class Principal extends javax.swing.JFrame {
         }else{
             arti.get(arti.indexOf(artists)).getAl().add(new Album(AlbumName.getText(), 0, ChooserFecha.getDate()));
           JBAL.setModel(actualizarcbal());
+          CBAL.setModel(actualizarcbal());
           JOptionPane.showMessageDialog(null, "Album Creado");
             AlbumName.setText("");
 
@@ -1107,6 +1117,7 @@ public class Principal extends javax.swing.JFrame {
         }else{
             arti.get(arti.indexOf(artists)).getCan().add(new Single(SingleName.getText(), 0, ChooserFecha1.getDate()));
             JBSIN.setModel(actualizarcbsin());
+            CBSIN.setModel(actualizarcbsin());
               JOptionPane.showMessageDialog(null, "Single Creado");
             SingleName.setText("");
         }
@@ -1119,6 +1130,7 @@ public class Principal extends javax.swing.JFrame {
             String titulo= CanName.getText();
             int dura= Integer.parseInt(DuraCan.getText());
             if (RBAL.isSelected()) {
+                CBCAN.setModel(actualizarcbmus());
                 music.add(new Cancion(titulo, dura, (Album)JBAL.getSelectedItem()));
             }else if (SNRB.isSelected()) {
                 music.add(new Cancion(titulo, dura, (Single)JBSIN.getSelectedItem()));
@@ -1130,7 +1142,11 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_CreateCanMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-    PBS= new AdminPB(PBC, 0, jPanel1);
+        //if (cb) {
+            
+        //}
+        
+        PBS= new AdminPB(PBC, 0, jPanel1);
     PBC.setMaximum(7);
     PBS.setVive(true);
     PBS.setTiempo(6);
@@ -1153,7 +1169,7 @@ public class Principal extends javax.swing.JFrame {
      public DefaultComboBoxModel actualizarcbListasRP() {
         DefaultComboBoxModel MODEL = new DefaultComboBoxModel();
         for (ListaRep lista : list) {
-            MODEL.addElement(list);
+            MODEL.addElement(lista);
 
         }
         return MODEL;
@@ -1162,7 +1178,7 @@ public class Principal extends javax.swing.JFrame {
      public DefaultComboBoxModel actualizarcbal() {
         DefaultComboBoxModel MODEL = new DefaultComboBoxModel();
         for (Album al: arti.get(arti.indexOf(artists)).getAl()) {
-            MODEL.addElement(list);
+            MODEL.addElement(al);
 
         }
         return MODEL;
@@ -1171,12 +1187,21 @@ public class Principal extends javax.swing.JFrame {
        public DefaultComboBoxModel actualizarcbsin() {
         DefaultComboBoxModel MODEL = new DefaultComboBoxModel();
         for (Single single: arti.get(arti.indexOf(artists)).getCan()) {
-            MODEL.addElement(list);
+            MODEL.addElement(single);
 
         }
         return MODEL;
     }
      
+       
+       
+       public DefaultComboBoxModel actualizarcbmus() {
+        DefaultComboBoxModel MODEL = new DefaultComboBoxModel();
+           for (Cancion cancion : music) {
+               MODEL.addElement(cancion);
+           }
+        return MODEL;
+    }
      
      
      
@@ -1336,8 +1361,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField ArtNameTxt;
     private javax.swing.JDialog Artista;
     private javax.swing.JButton ButtonCreateList;
+    private javax.swing.JComboBox<String> CBAL;
+    private javax.swing.JComboBox<String> CBCAN;
     private javax.swing.JComboBox<String> CBEVT;
     private javax.swing.JComboBox<String> CBL;
+    private javax.swing.JComboBox<String> CBSIN;
     private javax.swing.JButton CLanzBut;
     private javax.swing.JButton CLanzEDT;
     private javax.swing.JTextField CanName;
@@ -1377,9 +1405,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField UserCL;
     private javax.swing.JTextField UsernameLog;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1400,6 +1425,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

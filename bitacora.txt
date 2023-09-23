@@ -1,0 +1,1 @@
+El usuario: Shaggy. siendo : Artista, se ha creado un : Fri Sep 22 20:24:52 CST 2023El usuario: Juan. siendo : Cliente, se ha creado un : Fri Sep 22 20:25:05 CST 2023El usuario: luigi. siendo : Artista, se ha creado un : Fri Sep 22 20:25:16 CST 2023
