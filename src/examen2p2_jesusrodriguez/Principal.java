@@ -104,8 +104,8 @@ public class Principal extends javax.swing.JFrame {
         CreateCan = new javax.swing.JButton();
         JBAL = new javax.swing.JComboBox<>();
         JBSIN = new javax.swing.JComboBox<>();
-        jLabel27 = new javax.swing.JLabel();
-        jLabe28 = new javax.swing.JLabel();
+        RBAL = new javax.swing.JRadioButton();
+        SNRB = new javax.swing.JRadioButton();
         Clientes = new javax.swing.JDialog();
         jPanel8 = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
@@ -315,7 +315,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                     .addComponent(FechaLanz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(31, 31, 31)
-                .addComponent(CLanzBut, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                .addComponent(CLanzBut, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -331,7 +331,7 @@ public class Principal extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 294, Short.MAX_VALUE)
+            .addGap(0, 339, Short.MAX_VALUE)
         );
 
         jTabbedPane2.addTab("Publicar Lanzamiento", jPanel7);
@@ -474,7 +474,7 @@ public class Principal extends javax.swing.JFrame {
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 294, Short.MAX_VALUE)
+            .addGap(0, 339, Short.MAX_VALUE)
             .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel13Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -508,9 +508,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel27.setText("Album");
+        RBAL.setText("Album");
 
-        jLabe28.setText("Single");
+        SNRB.setText("Single");
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -528,20 +528,15 @@ public class Principal extends javax.swing.JFrame {
                                     .addComponent(DuraCan, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel24)
                                     .addComponent(CanName, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel15Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel27))
-                            .addGroup(jPanel15Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(JBAL, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(120, 120, 120)
+                            .addComponent(RBAL)
+                            .addComponent(JBAL, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(81, 81, 81)
                         .addComponent(CreateCan, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabe28)
-                            .addComponent(JBSIN, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addComponent(JBSIN, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SNRB))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -560,12 +555,12 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(DuraCan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel26)
-                .addGap(8, 8, 8)
-                .addComponent(jLabel27)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JBAL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(RBAL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabe28)
+                .addComponent(JBAL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(SNRB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JBSIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -573,7 +568,7 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Crear Cancion", jPanel15);
 
-        jPanel5.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 643, 355));
+        jPanel5.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 643, 400));
 
         javax.swing.GroupLayout ArtistaLayout = new javax.swing.GroupLayout(Artista.getContentPane());
         Artista.getContentPane().setLayout(ArtistaLayout);
@@ -945,6 +940,7 @@ public class Principal extends javax.swing.JFrame {
         } else {
             String name = NombreLanz.getText();
             Date fecha = FechaLanz.getDate();
+            actArtistas();
             launch.add(new Lanzamiento(name, 0, fecha));
             CBEVT.setModel(actualizarcbLaunch());
             JOptionPane.showMessageDialog(Artista, "Lanzamiento creado exitosamente");
@@ -957,7 +953,7 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Esta vacio para modificar");
         } else {
             String namenew = NombreLanzEdt.getText();
-
+            actArtistas();
             Date fechanew = FechaLanzEDT.getDate();
             artists.getAl().get(CBEVT.getSelectedIndex()).setNombre(namenew);
             artists.getAl().get(CBEVT.getSelectedIndex()).setFecha(fechanew);
@@ -974,7 +970,9 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No le ha puesto nombre a su lista");
         } else {
             String tit = ListaRepName.getText();
+            
             list.add(new ListaRep(tit, 0));
+            actCliente();
            CBL.setModel(actualizarcbListasRP()); 
             JOptionPane.showMessageDialog(Clientes, "La Lista de Reproduccion ha sido creada");;
         }
@@ -1033,6 +1031,7 @@ public class Principal extends javax.swing.JFrame {
         }else{
             arti.get(arti.indexOf(artists)).getAl().add(new Album(AlbumName.getText(), 0, ChooserFecha.getDate()));
           JBAL.setModel(actualizarcbal());
+          JOptionPane.showMessageDialog(null, "Album Creado");
             AlbumName.setText("");
 
         }
@@ -1044,6 +1043,7 @@ public class Principal extends javax.swing.JFrame {
         }else{
             arti.get(arti.indexOf(artists)).getCan().add(new Single(SingleName.getText(), 0, ChooserFecha1.getDate()));
             JBSIN.setModel(actualizarcbsin());
+              JOptionPane.showMessageDialog(null, "Single Creado");
             SingleName.setText("");
         }
     }//GEN-LAST:event_CrearSingleMouseClicked
@@ -1052,6 +1052,13 @@ public class Principal extends javax.swing.JFrame {
         if (CanName.getText().isEmpty()||DuraCan.getText().isEmpty()) {
          JOptionPane.showMessageDialog(this,"La Cancion no tiene nombre" );
         }else{
+            String titulo= CanName.getText();
+            int dura= Integer.parseInt(DuraCan.getText());
+            if (RBAL.isSelected()) {
+                music.add(new Cancion(titulo, dura, (Album)JBAL.getSelectedItem()));
+            }else if (SNRB.isSelected()) {
+                music.add(new Cancion(titulo, dura, (Single)JBSIN.getSelectedItem()));
+            }
             music.add(new Cancion());
             
             SingleName.setText("");
@@ -1286,14 +1293,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField PassArtist;
     private javax.swing.JTextField PasswordCl;
     private javax.swing.JTextField PasswordLog;
+    private javax.swing.JRadioButton RBAL;
     private javax.swing.JDialog Register;
     private javax.swing.JButton Registrar;
+    private javax.swing.JRadioButton SNRB;
     private javax.swing.JTextField SingleName;
     private javax.swing.JComboBox<String> TypeUserCB;
     private javax.swing.JTextField UserArtist;
     private javax.swing.JTextField UserCL;
     private javax.swing.JTextField UsernameLog;
-    private javax.swing.JLabel jLabe28;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1313,7 +1321,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
